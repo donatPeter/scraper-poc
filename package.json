@@ -1,0 +1,23 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "Web scraper POC using Selenium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donatPeter/scraper-poc.git"
+  },
+  "keywords": [
+    "selenium",
+    "scraper"
+  ],
+  "author": "Donat Peter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donatPeter/scraper-poc/issues"
+  },
+  "homepage": "https://github.com/donatPeter/scraper-poc#readme"
+}
