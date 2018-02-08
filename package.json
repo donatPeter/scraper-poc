@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/donatPeter/scraper-poc/issues"
   },
-  "homepage": "https://github.com/donatPeter/scraper-poc#readme"
+  "homepage": "https://github.com/donatPeter/scraper-poc#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "request": "^2.83.0",
+    "webdriverio": "^4.10.2"
+  }
 }
