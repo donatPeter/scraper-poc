@@ -29,3 +29,22 @@ const port = 5000;
 app.listen(port, () => {
 
 });
+
+// Scraping an example page
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome')
+const { By, until } = webdriver
+
+// Use headless chrome to not display browser during scraping
+const options = new chrome.Options();
+options.addArguments('headless');
+options.addArguments('disable-gpu')
+
+const path = require('chromedriver').path;
+const service = new chrome.ServiceBuilder(path).build();
+chrome.setDefaultService(service);
+const driver = new webdriver.Builder()
+  .forBrowser('chrome')
+  .withCapabilities(webdriver.Capabilities.chrome())
+  .setChromeOptions(options)
+  .build();
