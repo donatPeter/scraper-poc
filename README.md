@@ -1,6 +1,6 @@
 # scraper-poc
 
-Scraper POC to create a MVC application to display input fields with the UI elements for the aswer where the input fields scraped from an external page.
+Scraper POC to create a MVC application to display input fields with the UI elements for the aswer where the input fields scraped from an external page (`https://www.profession.hu/oneletrajz/palyakezdo-marketinges-angol-cv`).
 
 Usage:
 - install required dependencies with `npm install`
