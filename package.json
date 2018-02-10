@@ -2,8 +2,9 @@
   "name": "scraper",
   "version": "1.0.0",
   "description": "Web scraper POC using Selenium",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +23,11 @@
   "homepage": "https://github.com/donatPeter/scraper-poc#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
     "request": "^2.83.0",
+    "selenium-server-standalone": "^2.53.1",
+    "selenium-standalone": "^6.12.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
     "webdriverio": "^4.10.2"
   }
 }
