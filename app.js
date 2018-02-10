@@ -13,6 +13,18 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.post('*', (req, res) => {
+  scrapCV().then(() => {
+    res.render('index', {
+      fname: cvMap.fname,
+      lname: cvMap.lname,
+      phone: cvMap.phone,
+      mail: cvMap.mail
+    });
+
+  })
+});
+
 // About route
 app.get('/about', (req, res) => {
   res.render('about');
@@ -23,14 +35,13 @@ app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-
 // Init local server
 const port = 5000;
 app.listen(port, () => {
 
 });
 
-// Scraping an example page
+// Init selenium-webdriver
 const webdriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome')
 const { By, until } = webdriver
@@ -43,8 +54,27 @@ options.addArguments('disable-gpu')
 const path = require('chromedriver').path;
 const service = new chrome.ServiceBuilder(path).build();
 chrome.setDefaultService(service);
-const driver = new webdriver.Builder()
-  .forBrowser('chrome')
-  .withCapabilities(webdriver.Capabilities.chrome())
-  .setChromeOptions(options)
-  .build();
+
+// Scraping the example page
+const cvMap = {};
+async function scrapCV() {
+  const driver = new webdriver.Builder()
+    .forBrowser('chrome')
+    .withCapabilities(webdriver.Capabilities.chrome())
+    .setChromeOptions(options)
+    .build();
+  try {
+    await driver.get('https://www.profession.hu/oneletrajz/palyakezdo-marketinges-angol-cv');
+    await driver.findElement(By.css('.info > h2')).getText().then(res => {
+      resArr = res.split(' ');
+      cvMap.fname = resArr[0];
+      cvMap.lname = resArr[1]
+    })
+    await driver.findElement(By.css('.info')).getAttribute('innerText').then(res => {
+      cvMap.phone = res.slice(res.indexOf('Phone'), res.indexOf('E-mail')).replace('Phone: ', '').replace(/ /g, '');
+      cvMap.mail = res.slice(res.indexOf('E-mail')).replace('E-mail: ', '');
+    })
+  } finally {
+    await driver.quit();
+  }
+};

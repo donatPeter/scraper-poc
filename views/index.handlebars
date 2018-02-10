@@ -1,1 +1,43 @@
-<h1>Scraper POC</h1>
+<form method="post">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    {{#if fname}}
+    <input type="text" class="form-control" placeholder="First Name" value={{fname}} aria-label="First Name"> {{else}}
+    <input type="text" class="form-control" placeholder="First Name" aria-label="First Name"> {{/if}}
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    {{#if lname}}
+    <input type="text" class="form-control" placeholder="Last Name" value={{lname}} aria-label="Last Name"> {{else}}
+    <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name"> {{/if}}
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    {{#if phone}}
+    <input type="text" class="form-control" placeholder="Phone" value={{phone}} aria-label="Phone" aria-describedby="basic-addon1"> {{else}}
+    <input type="text" class="form-control" placeholder="Phone" aria-label="Phone" aria-describedby="basic-addon1"> {{/if}}
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    {{#if mail}}
+    <input type="text" class="form-control" placeholder="E-mail" value={{mail}} aria-label="E-mail" aria-describedby="basic-addon1"> {{else}}
+    <input type="text" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1"> {{/if}}
+  </div>
+  <button type="submit" class="btn btn-primary" id="scrap">Scrap!</button>
+</form>
+
+<script>
+
+  document.addEventListener('ValueChange', (ev) => {
+    console.log(ev)
+  })
+
+</script>
