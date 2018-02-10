@@ -13,6 +13,17 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+// About route
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
+// Redirecting any other URL to index
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
+
+
 // Init local server
 const port = 5000;
 app.listen(port, () => {
