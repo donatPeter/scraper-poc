@@ -15,8 +15,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('*', (req, res) => {
-  scrapCV().then(() => {
+  scrapCV().then((cvMap) => {
     res.render('index', {
+      fname: cvMap.fname,
+      lname: cvMap.lname,
+      phone: cvMap.phone,
+      mail: cvMap.mail
     });
   })
 });

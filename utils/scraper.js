@@ -34,6 +34,7 @@ module.exports = {
     } finally {
       await driver.quit();
     }
+    return cvMap;
   }
 }
 
